@@ -38,26 +38,26 @@
         return { isWindows: false, label: platform || "this platform" };
     }
 
-    function showUnsupportedPlatform(platform) {
-        var alerts = document.querySelectorAll("[data-platform-alert]");
-
-        alerts.forEach(function (alert) {
-            var message = alert.querySelector("[data-platform-message]");
-
-            if (message) {
-                message.textContent = "HXPainter currently supports Windows 10 or later only. Your browser reports " + platform.label + ", so downloads are not supported on this platform.";
-            }
-
-            alert.hidden = false;
-        });
-    }
-
     var platform = detectedPlatform();
 
     if (!platform || platform.isWindows) {
         return;
     }
 
-    document.documentElement.classList.add("unsupported-platform");
-    showUnsupportedPlatform(platform);
+    var button = document.querySelector("[data-download-button]");
+    var message = document.querySelector("[data-platform-download-message]");
+
+    if (button) {
+        button.hidden = true;
+    }
+
+    if (message) {
+        var detail = message.querySelector("span");
+
+        if (detail) {
+            detail.textContent = "HXPainter currently supports Windows 10 or later only. Your browser reports " + platform.label + ".";
+        }
+
+        message.hidden = false;
+    }
 }());

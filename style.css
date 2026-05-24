@@ -137,20 +137,6 @@ nav a:hover {
     color: var(--accent-color);
 }
 
-.platform-alert {
-    width: min(100%, 1200px);
-    margin: 1rem auto 0;
-    padding: 0.9rem 1.25rem;
-    border: 1px solid rgba(255, 193, 7, 0.45);
-    border-radius: 8px;
-    background-color: rgba(255, 193, 7, 0.12);
-    color: #f5df9d;
-}
-
-.platform-alert strong {
-    color: #ffd66b;
-}
-
 .hero {
     min-height: 80vh;
     display: flex;
@@ -261,13 +247,18 @@ footer {
 }
 
 .footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(0.75rem, 3vw, 1.25rem);
+    flex-wrap: nowrap;
     margin-bottom: 1rem;
 }
 
 .footer-links a {
     color: #888;
-    margin: 0 10px;
     text-decoration: none;
+    white-space: nowrap;
 }
 
 .footer-links a:hover {
@@ -305,6 +296,22 @@ footer {
     margin-bottom: 3rem;
 }
 
+.platform-download-message {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    max-width: 100%;
+    padding: 1rem 1.25rem;
+    border: 1px solid rgba(255, 193, 7, 0.45);
+    border-radius: 8px;
+    background-color: rgba(255, 193, 7, 0.12);
+    color: #f5df9d;
+}
+
+.platform-download-message strong {
+    color: #ffd66b;
+}
+
 .requirements {
     margin-top: 2rem;
     text-align: left;
@@ -340,10 +347,6 @@ footer {
         justify-content: flex-start;
     }
 
-    .platform-alert {
-        width: calc(100% - 2rem);
-    }
-
     .hero {
         min-height: auto;
     }
@@ -356,5 +359,14 @@ footer {
 
     .requirements {
         display: block;
+    }
+
+    footer {
+        padding: 2rem 1rem;
+    }
+
+    .footer-links {
+        gap: clamp(0.5rem, 3vw, 0.85rem);
+        font-size: 0.95rem;
     }
 }
