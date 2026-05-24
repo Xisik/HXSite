@@ -1,14 +1,19 @@
 (function () {
     function detectedPlatform() {
+        var navigatorInfo = typeof navigator === "undefined" ? null : navigator;
         var platform = "";
 
-        if (navigator.userAgentData && navigator.userAgentData.platform) {
-            platform = navigator.userAgentData.platform;
-        } else if (navigator.platform) {
-            platform = navigator.platform;
+        if (!navigatorInfo) {
+            return null;
         }
 
-        var userAgent = navigator.userAgent || "";
+        if (navigatorInfo.userAgentData && navigatorInfo.userAgentData.platform) {
+            platform = navigatorInfo.userAgentData.platform;
+        } else if (navigatorInfo.platform) {
+            platform = navigatorInfo.platform;
+        }
+
+        var userAgent = navigatorInfo.userAgent || "";
         var source = (platform + " " + userAgent).trim();
 
         if (!source) {
@@ -39,13 +44,20 @@
     }
 
     var platform = detectedPlatform();
-
-    if (!platform || platform.isWindows) {
-        return;
-    }
-
     var button = document.querySelector("[data-download-button]");
     var message = document.querySelector("[data-platform-download-message]");
+
+    if (!platform || platform.isWindows) {
+        if (button) {
+            button.hidden = false;
+        }
+
+        if (message) {
+            message.hidden = true;
+        }
+
+        return;
+    }
 
     if (button) {
         button.hidden = true;

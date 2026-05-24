@@ -77,6 +77,10 @@
     padding: 0;
 }
 
+[hidden] {
+    display: none !important;
+}
+
 body {
     font-family: 'Paperozi', sans-serif;
     background-color: var(--bg-color);
