@@ -22,11 +22,17 @@
         </nav>
     </header>
 
+    <div class="platform-alert" data-platform-alert hidden role="status" aria-live="polite">
+        <strong>Windows only:</strong>
+        <span data-platform-message>HXPainter currently supports Windows 10 or later. Downloads are not supported on this platform.</span>
+    </div>
+
     <main class="container">
         <h2 class="section-title">About HXPainter</h2>
         
         <div class="about-content">
             <p>HXPainter is a passion project born from the desire for a lightweight, high-performance painting tool that respects the user's freedom. Built with C++ and the Qt framework, it leverages modern GPU acceleration to provide a seamless creative experience.</p>
+            <p>The application is organized around a real painting workflow: a document model for layered canvases, brush and eraser engines, project serialization, PNG/JPG export, tablet input mapping, and command-based history for reliable Undo and Redo.</p>
             
             <h3 style="margin: 2rem 0 1rem; color: var(--accent-color);">Open Source & Free Software</h3>
             <p>HXPainter is released under the <strong>GNU General Public License v3 (GPL v3)</strong>. This means you are free to use, study, share, and modify the software. We believe that creative tools should be accessible to everyone without barriers.</p>
@@ -56,5 +62,6 @@
         </div>
         <p>&copy; 2026 HXPainter Project. All rights reserved.</p>
     </footer>
+    <script src="site.js" defer></script>
 </body>
 </html>

@@ -22,6 +22,11 @@
         </nav>
     </header>
 
+    <div class="platform-alert" data-platform-alert hidden role="status" aria-live="polite">
+        <strong>Windows only:</strong>
+        <span data-platform-message>HXPainter currently supports Windows 10 or later. Downloads are not supported on this platform.</span>
+    </div>
+
     <main>
         <section class="hero">
             <h1>Create Without Limits.</h1>
@@ -46,6 +51,24 @@
                 </div>
             </div>
         </section>
+
+        <section class="container">
+            <h2 class="section-title">Built from the Real HXPainter App</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Desktop Painting Workspace</h3>
+                    <p>Work with a menu bar, top toolbar, left tool palette, OpenGL-backed canvas, and right-side docks for layers, history, color, navigator, and performance.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Layer-Local Editing</h3>
+                    <p>Brush, erase, fill, select, shape, and text tools operate through the active document and layer system, with opacity, visibility, lock, and merge controls.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Project-Safe Output</h3>
+                    <p>Save and load native .hxp projects, import images as layers, export PNG or JPG artwork, and step through edits with command-based Undo and Redo history.</p>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -57,5 +80,6 @@
         </div>
         <p>&copy; 2026 HXPainter Project. All rights reserved.</p>
     </footer>
+    <script src="site.js" defer></script>
 </body>
 </html>

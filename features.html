@@ -22,6 +22,11 @@
         </nav>
     </header>
 
+    <div class="platform-alert" data-platform-alert hidden role="status" aria-live="polite">
+        <strong>Windows only:</strong>
+        <span data-platform-message>HXPainter currently supports Windows 10 or later. Downloads are not supported on this platform.</span>
+    </div>
+
     <main class="container">
         <h2 class="section-title">Powerful Features for Artists</h2>
         
@@ -51,6 +56,11 @@
                 <p>A sleek dark theme with dockable panels for Tool Options, Layers, History, and more, allowing you to tailor your workspace.</p>
             </div>
         </div>
+
+        <section class="feature-note">
+            <h3>Engineered as a Native Desktop App</h3>
+            <p>HXPainter is built in C++20 with Qt Widgets, OpenGLWidgets, OpenGL, and SVG resources. The current project structure includes dedicated modules for tools, brush engines, project serialization, export, tablet input mapping, and Windows deployment.</p>
+        </section>
     </main>
 
     <footer>
@@ -62,5 +72,6 @@
         </div>
         <p>&copy; 2026 HXPainter Project. All rights reserved.</p>
     </footer>
+    <script src="site.js" defer></script>
 </body>
 </html>

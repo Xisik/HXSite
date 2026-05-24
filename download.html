@@ -22,12 +22,18 @@
         </nav>
     </header>
 
+    <div class="platform-alert" data-platform-alert hidden role="status" aria-live="polite">
+        <strong>Windows only:</strong>
+        <span data-platform-message>HXPainter currently supports Windows 10 or later. Downloads are not supported on this platform.</span>
+    </div>
+
     <main class="container">
         <h2 class="section-title">Get HXPainter Today</h2>
         
         <div class="download-box">
-            <p style="margin-bottom: 2rem; font-size: 1.2rem;">Ready to start creating? Download the latest version of HXPainter for Windows.</p>
-            <div style="margin-bottom: 3rem;">
+            <p class="download-lead">Ready to start creating? Download the latest version of HXPainter for Windows.</p>
+            <p class="download-copy">This installer targets the standalone Windows desktop build, including the Qt runtime and OpenGL components used by the HXPainter workspace.</p>
+            <div class="download-action">
                 <a href="HXSetup.msi" class="btn">Download HXPainter (Windows)</a>
             </div>
             
@@ -53,5 +59,6 @@
         </div>
         <p>&copy; 2026 HXPainter Project. All rights reserved.</p>
     </footer>
+    <script src="site.js" defer></script>
 </body>
 </html>
