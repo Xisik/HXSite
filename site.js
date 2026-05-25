@@ -1,4 +1,29 @@
 (function () {
+    function setupMobileMenu() {
+        var toggles = document.querySelectorAll("[data-menu-toggle], .menu-toggle");
+
+        toggles.forEach(function (toggle) {
+            var nav = toggle.closest(".site-nav");
+
+            if (!nav) {
+                return;
+            }
+
+            toggle.addEventListener("click", function () {
+                var expanded = toggle.getAttribute("aria-expanded") === "true";
+                toggle.setAttribute("aria-expanded", String(!expanded));
+                nav.classList.toggle("is-open", !expanded);
+            });
+
+            nav.querySelectorAll("a").forEach(function (link) {
+                link.addEventListener("click", function () {
+                    toggle.setAttribute("aria-expanded", "false");
+                    nav.classList.remove("is-open");
+                });
+            });
+        });
+    }
+
     function detectedPlatform() {
         var navigatorInfo = typeof navigator === "undefined" ? null : navigator;
         var platform = "";
@@ -42,6 +67,8 @@
 
         return { isWindows: false, label: platform || "this platform" };
     }
+
+    setupMobileMenu();
 
     var platform = detectedPlatform();
     var button = document.querySelector("[data-download-button]");

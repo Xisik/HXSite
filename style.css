@@ -122,12 +122,34 @@ header {
     height: 40px;
 }
 
-nav ul {
+.site-nav {
+    display: flex;
+    align-items: center;
+}
+
+.site-menu {
     display: flex;
     list-style: none;
     gap: 20px;
     flex-wrap: wrap;
     justify-content: flex-end;
+}
+
+.menu-toggle {
+    display: none;
+    padding: 0.7rem 0.95rem;
+    border: 1px solid rgba(0, 170, 255, 0.65);
+    border-radius: 6px;
+    background-color: transparent;
+    color: var(--text-color);
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.menu-toggle:hover {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
 }
 
 nav a {
@@ -383,11 +405,11 @@ footer {
     color: var(--accent-color);
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
     header {
         padding: 0.9rem 1rem;
-        align-items: flex-start;
-        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
     }
 
     .logo {
@@ -398,9 +420,46 @@ footer {
         height: 34px;
     }
 
-    nav ul {
-        gap: 0.55rem 1rem;
-        justify-content: flex-start;
+    .site-nav {
+        flex: 1;
+        justify-content: flex-end;
+    }
+
+    .menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .site-menu {
+        display: none;
+        width: 100%;
+        margin-top: 0.75rem;
+        padding-top: 0.75rem;
+        border-top: 1px solid #333;
+        flex-direction: column;
+        gap: 0;
+        text-align: left;
+    }
+
+    .site-nav.is-open {
+        flex-basis: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .site-nav.is-open .menu-toggle {
+        align-self: flex-end;
+    }
+
+    .site-nav.is-open .site-menu {
+        display: flex;
+    }
+
+    .site-menu a {
+        display: block;
+        padding: 0.85rem 0;
+        border-bottom: 1px solid #333;
     }
 
     .hero {
@@ -422,11 +481,11 @@ footer {
     }
 
     footer {
-        padding: 2rem 1rem;
+        padding: 2rem 0.5rem;
     }
 
     .footer-links {
-        gap: clamp(0.5rem, 3vw, 0.85rem);
-        font-size: 0.95rem;
+        gap: clamp(0.2rem, 1.25vw, 0.55rem);
+        font-size: clamp(0.7rem, 2.6vw, 0.95rem);
     }
 }
