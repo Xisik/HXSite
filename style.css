@@ -189,6 +189,24 @@ nav a:hover {
     transform: translateY(-2px);
 }
 
+.btn-secondary {
+    border: 1px solid rgba(0, 170, 255, 0.75);
+    background-color: transparent;
+    color: var(--accent-color);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(0, 170, 255, 0.12);
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
 .container {
     width: min(100%, 1200px);
     max-width: 1200px;
@@ -240,6 +258,18 @@ nav a:hover {
 .feature-note h3 {
     margin-bottom: 0.75rem;
     color: var(--accent-color);
+}
+
+.text-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--accent-color);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.text-link:hover {
+    text-decoration: underline;
 }
 
 footer {
@@ -331,6 +361,28 @@ footer {
     margin-left: 20px;
 }
 
+.source-note {
+    max-width: 760px;
+    margin: 2rem auto 0;
+    text-align: left;
+}
+
+.source-note h4 {
+    margin-bottom: 0.5rem;
+}
+
+.source-info {
+    margin: 2rem 0;
+    padding: clamp(1.25rem, 5vw, 2rem);
+    border-left: 4px solid var(--accent-color);
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+.source-info h3 {
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+}
+
 @media (max-width: 640px) {
     header {
         padding: 0.9rem 1rem;
@@ -359,6 +411,10 @@ footer {
         width: 100%;
         padding: 0.95rem 1.25rem;
         font-size: 1.05rem;
+    }
+
+    .hero-actions {
+        width: 100%;
     }
 
     .requirements {
