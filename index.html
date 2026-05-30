@@ -3,75 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download HXPainter</title>
+    <title>HXPainter - Digital Painting Studio</title>
     <style>
         :root {
-            --bg-color: #0f172a;
-            --text-color: #f8fafc;
-            --primary-color: #3b82f6;
-            --primary-hover: #2563eb;
-            --card-bg: #1e293b;
-            --error-color: #ef4444;
+            --bg-base: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+            --border: #334155;
+            --error: #ef4444;
+            --success: #10b981;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-main);
             margin: 0;
+            padding: 0;
             line-height: 1.6;
         }
 
-        .container {
-            background-color: var(--card-bg);
-            padding: 3rem;
-            border-radius: 1rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        header {
             text-align: center;
-            max-width: 400px;
-            width: 100%;
+            padding: 5rem 2rem 2rem;
+        }
+
+        .icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
         }
 
         h1 {
-            margin-top: 0;
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
+            font-size: 3.5rem;
+            margin: 0 0 1rem 0;
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        p {
-            color: #94a3b8;
-            margin-bottom: 2rem;
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 3rem auto;
+        }
+
+        .hero {
+            display: flex;
+            justify-content: center;
+            padding: 0 2rem;
+            margin-bottom: 5rem;
+        }
+
+        .download-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 450px;
         }
 
         .download-btn {
             display: inline-block;
-            background-color: var(--primary-color);
+            background-color: var(--accent);
             color: white;
             text-decoration: none;
-            padding: 0.75rem 1.5rem;
+            padding: 1rem 2rem;
             border-radius: 0.5rem;
-            font-weight: bold;
+            font-weight: 600;
             font-size: 1.1rem;
-            transition: background-color 0.2s ease, transform 0.1s ease;
+            transition: all 0.2s ease;
             width: 100%;
             box-sizing: border-box;
+            box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.5);
         }
 
         .download-btn:hover {
-            background-color: var(--primary-hover);
+            background-color: var(--accent-hover);
             transform: translateY(-2px);
-        }
-
-        .download-btn:active {
-            transform: translateY(0);
+            box-shadow: 0 6px 8px -1px rgba(59, 130, 246, 0.6);
         }
 
         .unsupported {
-            color: var(--error-color);
+            color: var(--error);
             font-weight: bold;
             background-color: rgba(239, 68, 68, 0.1);
             padding: 1rem;
@@ -79,57 +99,207 @@
             border: 1px solid rgba(239, 68, 68, 0.2);
         }
 
-        .icon {
-            font-size: 3rem;
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin: 4rem 0 2rem 0;
+            color: var(--text-main);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            border: 1px solid var(--border);
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: #38bdf8;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .spec-box {
+            background: linear-gradient(180deg, var(--bg-card) 0%, rgba(30,41,59,0.5) 100%);
+            border: 1px solid var(--border);
+            border-top: 3px solid var(--accent);
+            padding: 2rem;
+            border-radius: 0.75rem;
+        }
+
+        .spec-box h3 {
+            margin-top: 0;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.75rem;
             margin-bottom: 1rem;
         }
 
-        #dynamic-content {
-            min-height: 80px;
+        .spec-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            color: var(--text-muted);
+        }
+
+        .spec-list li {
+            margin-bottom: 0.5rem;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .spec-list li::before {
+            content: "✓";
+            color: var(--success);
+            margin-right: 0.75rem;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            margin-top: 4rem;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <header>
         <div class="icon">🎨</div>
         <h1>HXPainter</h1>
-        <p>A modern C++/Qt painting application.</p>
+        <p class="subtitle">A modern, high-performance digital painting studio powered by C++20 and Qt 6. Designed for artists who demand speed and precision.</p>
+    </header>
 
-        <div id="dynamic-content">
-            <!-- Content will be injected here by JavaScript -->
-            <span style="color: #64748b;">Detecting your operating system...</span>
+    <section class="hero">
+        <div class="download-card">
+            <h2 style="margin-top: 0; font-size: 1.5rem;">Get Started</h2>
+            <p style="color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem;">
+                Download the standalone package for your operating system. No installation required—just extract and run!
+            </p>
+            <div id="dynamic-content">
+                <span style="color: var(--text-muted);">Detecting your operating system...</span>
+            </div>
+            <p style="margin-top: 1.5rem; font-size: 0.8rem; color: var(--text-muted);">
+                Currently distributing highly compressed <strong>.tar.xz</strong> archives.
+            </p>
         </div>
-    </div>
+    </section>
+
+    <h2 class="section-title">Core Engine Features</h2>
+    <section class="grid">
+        <div class="card">
+            <h3>⚡ OpenGL Acceleration</h3>
+            <p>Powered by a custom <code>OpenGLCanvasWidget</code>, ensuring buttery-smooth canvas rotation, zooming, and rendering even with large documents and complex layers.</p>
+        </div>
+        <div class="card">
+            <h3>🖌️ Dynamic Brush Engine</h3>
+            <p>The <code>BrushEngine</code> natively supports Wintab, X11, and Wayland tablet inputs via Qt's <code>TabletInputEvent</code>, providing zero-latency pressure sensitivity and tilt response.</p>
+        </div>
+        <div class="card">
+            <h3>📚 Layer Management</h3>
+            <p>A robust <code>CanvasDocument</code> and <code>LayerManager</code> system allows for infinite non-destructive layers with real-time composite blending, opacity, and locking controls.</p>
+        </div>
+        <div class="card">
+            <h3>⏪ Non-destructive Workflow</h3>
+            <p>Make mistakes fearlessly. The <code>CommandManager</code> implements an exact Command Pattern, taking lightweight memory snapshots for infinite Undo and Redo operations.</p>
+        </div>
+        <div class="card">
+            <h3>🗃️ Native .hxp Format</h3>
+            <p>Save your complete workspace using the efficient, JSON-based <code>.hxp</code> project format handled by <code>ProjectSerializer</code>, or export directly to PNG/JPG.</p>
+        </div>
+        <div class="card">
+            <h3>🎨 Modular Architecture</h3>
+            <p>Built with C++20 standard, the engine strictly separates UI, Input Mapping, and Rendering layers, making it highly stable and immune to UI-thread blocking.</p>
+        </div>
+    </section>
+
+    <h2 class="section-title">System Requirements</h2>
+    <section class="specs-grid">
+        <div class="spec-box">
+            <h3>🪟 Windows</h3>
+            <ul class="spec-list">
+                <li><strong>OS:</strong> Windows 10 or Windows 11 (64-bit)</li>
+                <li><strong>Processor:</strong> x86_64 architecture CPU</li>
+                <li><strong>Graphics:</strong> OpenGL 3.3 compatible GPU</li>
+                <li><strong>Memory:</strong> 4GB RAM minimum (8GB+ recommended)</li>
+                <li><strong>Input:</strong> Mouse or Wintab/Windows Ink compatible drawing tablet</li>
+                <li><strong>Dependencies:</strong> None! All required Qt6 and MinGW DLLs are bundled.</li>
+            </ul>
+        </div>
+        <div class="spec-box">
+            <h3>🐧 Linux</h3>
+            <ul class="spec-list">
+                <li><strong>OS:</strong> 64-bit Modern Distribution (Ubuntu 22.04+, Fedora 38+, Arch)</li>
+                <li><strong>Display Server:</strong> Wayland or X11</li>
+                <li><strong>Graphics:</strong> OpenGL 3.3 compatible GPU</li>
+                <li><strong>Memory:</strong> 4GB RAM minimum (8GB+ recommended)</li>
+                <li><strong>Input:</strong> Mouse or libinput compatible drawing tablet</li>
+                <li><strong>Dependencies:</strong> glibc 2.31+. Required Qt6 .so libraries are bundled locally.</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 HXPainter Project. Open-source C++/Qt Application MVP.</p>
+    </footer>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const contentDiv = document.getElementById('dynamic-content');
             const userAgent = window.navigator.userAgent.toLowerCase();
             
-            // Simple OS detection
             const isWindows = userAgent.includes('windows') || userAgent.includes('win32');
             const isLinux = userAgent.includes('linux') && !userAgent.includes('android');
 
             if (isWindows) {
                 contentDiv.innerHTML = `
                     <a href="HXPainter-Windows.tar.xz" class="download-btn">
-                        Download for Windows (.tar.xz)
+                        Download for Windows
                     </a>
                 `;
             } else if (isLinux) {
                 contentDiv.innerHTML = `
                     <a href="HXPainter-Linux.tar.xz" class="download-btn">
-                        Download for Linux (.tar.xz)
+                        Download for Linux
                     </a>
                 `;
             } else {
                 contentDiv.innerHTML = `
                     <div class="unsupported">
-                        Sorry, your operating system is not currently supported. We currently only offer builds for Windows and Linux.
+                        Sorry, your operating system is not currently supported.
+                        Please visit this page from a Windows or Linux PC.
                     </div>
                 `;
             }
