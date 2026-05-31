@@ -94,8 +94,10 @@
             padding: 5rem 2rem 2rem;
         }
 
-        .icon {
-            font-size: 4rem;
+        .brand-mark {
+            width: 84px;
+            height: 84px;
+            object-fit: contain;
             margin-bottom: 1rem;
         }
 
@@ -242,10 +244,13 @@
         }
 
         .spec-list li::before {
-            content: "✓";
-            color: var(--success);
+            content: "";
+            background-color: var(--success);
+            border-radius: 999px;
+            flex: 0 0 0.45rem;
+            height: 0.45rem;
+            margin-top: 0.55rem;
             margin-right: 0.75rem;
-            font-weight: bold;
         }
 
         footer {
@@ -260,7 +265,7 @@
 <body>
 
     <header>
-        <div class="icon">🎨</div>
+        <img class="brand-mark" src="assets/logo.png" alt="" aria-hidden="true">
         <h1>HXPainter</h1>
         <p class="subtitle">A modern, high-performance digital painting studio powered by C++20 and Qt 6. Designed for artists who demand speed and precision.</p>
     </header>
@@ -283,27 +288,27 @@
     <h2 class="section-title">Core Engine Features</h2>
     <section class="grid">
         <div class="card">
-            <h3>⚡ OpenGL Acceleration</h3>
-            <p>Powered by a custom <code>OpenGLCanvasWidget</code>, ensuring buttery-smooth canvas rotation, zooming, and rendering even with large documents and complex layers.</p>
+            <h3>Responsive Canvas Renderer</h3>
+            <p>Powered by a custom QWidget canvas, ensuring smooth canvas rotation, zooming, and rendering even with large documents and complex layers.</p>
         </div>
         <div class="card">
-            <h3>🖌️ Dynamic Brush Engine</h3>
+            <h3>Dynamic Brush Engine</h3>
             <p>The <code>BrushEngine</code> natively supports Wintab, X11, and Wayland tablet inputs via Qt's <code>TabletInputEvent</code>, providing zero-latency pressure sensitivity and tilt response.</p>
         </div>
         <div class="card">
-            <h3>📚 Layer Management</h3>
+            <h3>Layer Management</h3>
             <p>A robust <code>CanvasDocument</code> and <code>LayerManager</code> system allows for infinite non-destructive layers with real-time composite blending, opacity, and locking controls.</p>
         </div>
         <div class="card">
-            <h3>⏪ Non-destructive Workflow</h3>
+            <h3>Non-destructive Workflow</h3>
             <p>Make mistakes fearlessly. The <code>CommandManager</code> implements an exact Command Pattern, taking lightweight memory snapshots for infinite Undo and Redo operations.</p>
         </div>
         <div class="card">
-            <h3>🗃️ Native .hxp Format</h3>
+            <h3>Native .hxp Format</h3>
             <p>Save your complete workspace using the efficient, JSON-based <code>.hxp</code> project format handled by <code>ProjectSerializer</code>, or export directly to PNG/JPG.</p>
         </div>
         <div class="card">
-            <h3>🎨 Modular Architecture</h3>
+            <h3>Modular Architecture</h3>
             <p>Built with C++20 standard, the engine strictly separates UI, Input Mapping, and Rendering layers, making it highly stable and immune to UI-thread blocking.</p>
         </div>
     </section>
@@ -311,22 +316,22 @@
     <h2 class="section-title">System Requirements</h2>
     <section class="specs-grid">
         <div class="spec-box">
-            <h3>🪟 Windows</h3>
+            <h3>Windows</h3>
             <ul class="spec-list">
                 <li><strong>OS:</strong> Windows 10 or Windows 11 (64-bit)</li>
                 <li><strong>Processor:</strong> x86_64 architecture CPU</li>
-                <li><strong>Graphics:</strong> OpenGL 3.3 compatible GPU</li>
+                <li><strong>Graphics:</strong> Standard Windows graphics stack</li>
                 <li><strong>Memory:</strong> 4GB RAM minimum (8GB+ recommended)</li>
                 <li><strong>Input:</strong> Mouse or Wintab/Windows Ink compatible drawing tablet</li>
                 <li><strong>Dependencies:</strong> None! All required Qt6 and MinGW DLLs are bundled.</li>
             </ul>
         </div>
         <div class="spec-box">
-            <h3>🐧 Linux</h3>
+            <h3>Linux</h3>
             <ul class="spec-list">
                 <li><strong>OS:</strong> 64-bit Modern Distribution (Ubuntu 22.04+, Fedora 38+, Arch)</li>
                 <li><strong>Display Server:</strong> Wayland or X11</li>
-                <li><strong>Graphics:</strong> OpenGL 3.3 compatible GPU</li>
+                <li><strong>Graphics:</strong> Standard Qt-supported display stack</li>
                 <li><strong>Memory:</strong> 4GB RAM minimum (8GB+ recommended)</li>
                 <li><strong>Input:</strong> Mouse or libinput compatible drawing tablet</li>
                 <li><strong>Dependencies:</strong> glibc 2.31+. Required Qt6 .so libraries are bundled locally.</li>
